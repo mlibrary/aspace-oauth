@@ -51,6 +51,11 @@ class OauthController < ApplicationController
     redirect_to AspaceOauth.saml_logout_url
   end
 
+  def oidc_logout
+    reset_session
+    redirect_to AspaceOauth.oidc_logout_url
+  end
+
   protected
 
   def auth_hash
