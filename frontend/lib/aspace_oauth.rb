@@ -55,8 +55,8 @@ module AspaceOauth
     AppConfig.has_key?(:oauth_username_is_email) && AppConfig[:oauth_username_is_email] == true
   end
 
-  def self.oidc_logout_url
-    config = get_oauth_config_for('oidc')
+  def self.openid_connect_logout_url
+    config = get_oauth_config_for('openid_connect')
     return unless config
 
     uri = URI(config[:config][:end_session_endpoint])

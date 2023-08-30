@@ -51,9 +51,9 @@ class OauthController < ApplicationController
     redirect_to AspaceOauth.saml_logout_url
   end
 
-  def oidc_logout
+  def openid_connect_logout
     reset_session
-    redirect_to AspaceOauth.oidc_logout_url
+    redirect_to AspaceOauth.openid_connect_logout_url
   end
 
   protected
