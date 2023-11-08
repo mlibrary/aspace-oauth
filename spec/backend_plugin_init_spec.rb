@@ -15,7 +15,7 @@ RSpec.describe do
     # Simulating what Rails 5 does
     Encoding.default_internal = 'UTF-8'
 
-    # Force re-load after re-settiung
+    # Force re-load after re-setting
     load("./backend/plugin_init.rb")
 
     it "resets the default internal encoding from UTF-8 to nil" do
