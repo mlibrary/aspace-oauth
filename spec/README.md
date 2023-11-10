@@ -1,6 +1,6 @@
 # RSpec tests for mlibrary/aspace-oauth
 
-This project has a basic setup for running unit tests.\
+This project has a basic setup for running unit tests.
 It should be sufficient for writing and testing aspects of the code which do not rely on ArchivesSpace directly.
 
 ## Building and running tests

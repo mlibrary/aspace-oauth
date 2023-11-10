@@ -18,3 +18,14 @@ module ActiveSupport
     end
   end
 end
+
+# Correct default internal encoding to ensure PDF generation works as expected.
+# This is necessary because Rails (which is needed by the plugin) changes the default internal
+# encoding to UTF-8, which causes an UndefinedConversionError when writing PDFs.
+# Setting it to nil restores the setting to the state it was in before the plugin is loaded.
+
+# Resources
+# - https://github.com/rails/rails/blob/8030cff808657faa44828de001cd3b80364597de/railties/lib/rails.rb#L20-L24
+# - https://ruby-doc.org/2.7.8/Encoding.html#method-c-default_internal
+
+Encoding.default_internal = nil
