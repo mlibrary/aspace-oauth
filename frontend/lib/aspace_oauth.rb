@@ -86,4 +86,12 @@ module AspaceOauth
     signature = OpenSSL::HMAC.hexdigest("SHA256", get_oauth_shared_secret, payload)
     JSON.generate({signature: signature, payload: payload})
   end
+
+  def self.openid_connect_logout_url
+    config = get_oauth_config_for("openid_connect")
+    return unless config
+
+    uri = URI(config[:config][:client_options][:end_session_endpoint])
+    build_url(uri.to_s, uri.path, uri.query)
+  end
 end
