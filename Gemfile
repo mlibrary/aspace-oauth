@@ -7,7 +7,7 @@ source "https://rubygems.org"
 gem "rails", "~> 6.1"
 gem "omniauth", "~> 2.1"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
-gem "omniauth_openid_connect", "~> 0", ">= 0.6"
+gem "omniauth_openid_connect", "~> 0.6.1"
 
 # commenting out, backend is pinned to 2.8.1
 # gem "addressable", "~> 2.8"
