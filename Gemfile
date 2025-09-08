@@ -4,7 +4,7 @@ ASpaceGems.setup if defined? ASpaceGems
 source "https://rubygems.org"
 
 # Seem to need Rails to be specified or there"s an uninitialzed constant error
-gem "rails", "~> 6.1"
+gem "rails", "= 6.1.6"
 gem "omniauth", "~> 2.1"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "omniauth_openid_connect", "~> 0.6.1"
