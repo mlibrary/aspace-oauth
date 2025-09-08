@@ -14,7 +14,7 @@ gem "omniauth_openid_connect", "~> 0.6.1"
 
 # Pinning this resolves undefined method `[]' for #<OpenSSL::ASN1::Sequence:0x4bb0df3c>
 # trying to comment out or bump to 1.17.0
-# gem "json-jwt", "1.13.0"
+gem "json-jwt", "= 1.15.0"
 
 group :test, optional: true do
   # ArchivesSpace has json installed in the backend:
