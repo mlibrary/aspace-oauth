@@ -8,7 +8,9 @@ gem "rails", "~> 6.1"
 gem "omniauth", "~> 2.1"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "omniauth_openid_connect", "~> 0", ">= 0.8"
-gem "addressable", "~> 2.8"
+
+# commenting out, backend is pinned to 2.8.1
+# gem "addressable", "~> 2.8"
 
 # Pinning this resolves undefined method `[]' for #<OpenSSL::ASN1::Sequence:0x4bb0df3c>
 # trying to comment out or bump to 1.17.0
