@@ -4,10 +4,16 @@ require "date"
 
 module AspaceOauth
   def self.build_url(host, path, params = {})
+    query = if params.is_a?(Hash)
+      params.any? ? URI.encode_www_form(params) : nil
+    else
+      params
+    end
+
     URI::HTTPS.build(
       host: URI(host).host,
       path: path,
-      query: params.any? ? URI.encode_www_form(params) : nil
+      query: query
     ).to_s
   end
 
