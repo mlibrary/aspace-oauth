@@ -4,10 +4,16 @@ require "date"
 
 module AspaceOauth
   def self.build_url(host, path, params = {})
+    query = if params.is_a?(Hash)
+      params.any? ? URI.encode_www_form(params) : nil
+    else
+      params
+    end
+
     URI::HTTPS.build(
       host: URI(host).host,
       path: path,
-      query: params.any? ? URI.encode_www_form(params) : nil
+      query: query
     ).to_s
   end
 
@@ -85,5 +91,13 @@ module AspaceOauth
     })
     signature = OpenSSL::HMAC.hexdigest("SHA256", get_oauth_shared_secret, payload)
     JSON.generate({signature: signature, payload: payload})
+  end
+
+  def self.openid_connect_logout_url
+    config = get_oauth_config_for("openid_connect")
+    return unless config
+
+    uri = URI(config[:config][:client_options][:end_session_endpoint])
+    build_url(uri.to_s, uri.path, uri.query)
   end
 end

@@ -55,3 +55,13 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     $stdout.puts "REGISTERED OAUTH PROVIDER WITH CONFIG: #{config}" if AspaceOauth.debug?
   end
 end
+
+ArchivesSpace::Application::config.after_initialize do
+  # controllers/session_controller
+  SessionController.class_eval do
+    def logout
+      reset_session
+      redirect_to AspaceOauth.openid_connect_logout_url
+    end
+  end
+end
