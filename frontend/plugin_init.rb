@@ -9,7 +9,7 @@ unless oauth_definitions.any?
 end
 
 if !AppConfig.has_key? :oauth_debug
-  AppConfig[:oauth_debug] = true # TODO: default false
+  AppConfig[:oauth_debug] = false
 end
 
 # oauth_shared_secret is used to authenticate internal login requests from the
